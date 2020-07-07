@@ -29,7 +29,23 @@ export default function Studentprofile() {
     Actions.login()
   }
   
-    
+    const getdata = () =>{
+      console.log("Hi");
+   axios
+        .post(
+          "http://krishma.webcodice.com/react-native/axios.php",
+          {
+            request: 18,
+            
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+  }
   
   
     const getUser = (name) => {
@@ -93,7 +109,7 @@ export default function Studentprofile() {
             </View>
         ))}
                     <Text>Student Name:  {name== ''?'noname':name}</Text>
-
+<Text onPress={getdata}>View Scan data</Text>
          </View>
       )
    }

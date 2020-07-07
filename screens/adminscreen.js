@@ -123,6 +123,21 @@ const backAction = () =>{
 
       </View>
     
+    <View style={{flexDirection:"row", margin:10}}>
+      <Text style={styles.textstyle} onPress={()=> Actions.addclass()}>
+      <Icon
+      name="person-add"  ios='ios-person-add' android="md-person-add" style={{fontSize: 30}} />
+        &nbsp;&nbsp;
+        Add Class</Text>
+
+      <Text style={styles.textstyle} onPress={()=> Actions.teacherlist()}>
+      <Icon
+      name="paper"  ios='ios-paper' android="md-paper" style={{fontSize: 30}} />
+       &nbsp;&nbsp;
+      View Teachers</Text>
+
+
+      </View>
     </View>
     
   );

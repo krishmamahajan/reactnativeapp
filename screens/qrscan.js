@@ -1,22 +1,52 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button, AsyncStorage } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import axios from "axios";
+import { Actions } from 'react-native-router-flux';
 
 export default function qrscan()  {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+  const [name, setName] = useState('');
+ AsyncStorage.getItem('user').then((data) => {
+    // let user = data;
+    setName(data);
+  });
+
 
   useEffect(() => {
+  
+
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === 'granted');
     })();
   }, []);
 
+
+
+
+  const hidescanner = () =>{
+    setScanned(false);
+    Actions.student();
+  }
+
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    console.log(data)
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    
+    axios.post('http://krishma.webcodice.com/react-native/axios.php', {
+          request: 17,
+          data: data,
+         name: name,
+        })
+        .then(function (response) {
+      
+          alert(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    // alert(`Bar code with type ${type} of user : ${name} and data ${data} has been scanned!`);
   };
 
   if (hasPermission === null) {
@@ -42,7 +72,9 @@ export default function qrscan()  {
           <View style={styles.focused} />
           <View style={styles.layerRight} />
         </View>
-        <View style={styles.layerBottom} />
+        <View style={styles.layerBottom} >
+        <Text onPress={hidescanner} style={styles.textstyle}>Cancel</Text>
+        </View>
         </BarCodeScanner>
 
       {scanned && (
@@ -81,5 +113,11 @@ const styles = StyleSheet.create({
     flex: 2,
     backgroundColor: opacity
   },
+  textstyle:{
+     color:"#fff",
+     textAlign:"center",
+    fontSize:24,
+   marginTop:"50%"
+  }
 });
 

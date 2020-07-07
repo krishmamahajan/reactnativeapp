@@ -14,6 +14,7 @@ import Studentscreen from './screens/studentscreen.js'
 import Teacherscreen from './screens/teacherscreen.js'
 import Adminscreen from './screens/adminscreen.js'
 import Studentlist from './screens/studentlist.js'
+import Teacherlist from './screens/teacherlist.js'
 import Studentprofile from './screens/studentprofile.js'
 import Date from './screens/datepicker.js'
 import Addsubject from './screens/addsubject.js'
@@ -38,11 +39,12 @@ const Routes = () => (
          <Scene key = "student" component = {Studentscreen} title = "STudent Screen" titleStyle={styles.titlestyle}  />
          <Scene key = "teacher" component = {Teacherscreen} title = "Teacher Screen" titleStyle={styles.titlestyle}  />
          <Scene key = "admin" component = {Adminscreen} title = "Admin Screeen" titleStyle={styles.titlestyle}  />
-         <Scene key = "studentlist" component = {Studentlist} title = "Student list Screen" titleStyle={styles.titlestyle}  />
          <Scene key = "studentprofile" component = {Studentprofile} title = "Student Profile Screen" titleStyle={styles.titlestyle}  />
          <Scene key = "date" component = {Date} title = "Date Picker" titleStyle={styles.titlestyle}  />
+         <Scene key = "studentlist" component = {Studentlist} title = "Student list Screen" titleStyle={styles.titlestyle}  />
          <Scene key = "addsubject" component = {Addsubject} title = "Add Subject" titleStyle={styles.titlestyle}  />
          <Scene key = "adminqrgenerate" component = {Adminqrgenerate} title = "Generate QR" titleStyle={styles.titlestyle}  />
+         <Scene key = "teacherlist" component = {Teacherlist} title = "Teacher list Screen" titleStyle={styles.titlestyle}  />
 
       </Scene>
    </Router>

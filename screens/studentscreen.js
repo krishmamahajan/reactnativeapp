@@ -15,19 +15,19 @@ const Studentscreen = (props)=> {
     // let user = data;
     setName(data);
 })
-useEffect(() => {
+// useEffect(() => {
 
-  if(name == null){
-    Actions.login()
-  }else{
-    alert(name)
-  }
-  BackHandler.addEventListener("hardwareBackPress", true);
+//   if(name == null){
+//     Actions.login()
+//   }else{
+//     alert(name)
+//   }
+//   BackHandler.addEventListener("hardwareBackPress", true);
 
-  return () =>
-    BackHandler.removeEventListener("hardwareBackPress", true);
-}, []
-);
+//   return () =>
+//     BackHandler.removeEventListener("hardwareBackPress", true);
+// }, []
+// );
 
 const logout = async ()=>{
   try{

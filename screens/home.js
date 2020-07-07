@@ -10,7 +10,7 @@ class Home extends React.Component {
       this.timeoutHandle = setTimeout(()=>{
           // Add your logic for the transition
           this.props.navigation.navigate('login') // what to push here?
-      }, 5000);
+      }, 3000);
   }
 
   componentWillUnmount(){
